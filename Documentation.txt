@@ -1,14 +1,33 @@
 Documentation
 
 Program Description:
-This is a simple program demonstrating the use of semaphores, mutual exclusion, and shared memory. When the two files are run together, the producer process will generate two random numbers between 1 and 100, then wait to enter its critical section. While in the critical section, it will add the numbers it generated to the shared memory array if the array is empty (denoted by having the shared memory array slot be set to -1). The consumer process will initialize a variable called "sum" to 0, then wait to enter its critical section. When it does, it takes all the numbers in the shared memory array and adds them to the sum variable. It then empties the array of numbers by setting them to -1. Both of these programs repeat these actions 3 times, then after the third time, the consumer process prints the final sum of the randomly generated numbers.
-Whenever one of the processes performs an important action, it prints a message to the console. You can tell which process printed by seeing the identifier at the beginning of the message. ([P] for producer and [C] for consumer). These actions include: entering/exiting their critical section, producing/consuming numbers, and waiting on the other process to enter the critical section.
+This is a simple program demonstrating the use of semaphores, mutual exclusion, and shared memory. 
+When the two files are run together, the producer process will generate two random numbers between 
+1 and 100, then wait to enter its critical section. While in the critical section, it will add the 
+numbers it generated to the shared memory array if the array is empty (denoted by having the shared 
+memory array slot be set to -1). The consumer process will initialize a variable called "sum" to 0, 
+then wait to enter its critical section. When it does, it takes all the numbers in the shared 
+memory array and adds them to the sum variable. It then empties the array of numbers by setting them 
+to -1. Both of these programs repeat these actions 3 times, then after the third time, the consumer 
+process prints the final sum of the randomly generated numbers.
+Whenever one of the processes performs an important action, it prints a message to the console. 
+You can tell which process printed by seeing the identifier at the beginning of the message. ([P] 
+for producer and [C] for consumer). These actions include: entering/exiting their critical section, 
+producing/consuming numbers, and waiting on the other process to enter the critical section.
 
 
 Explanation of Key Components:
 
-Semaphores: Semaphores are used in this program to prevent the producer and consumer programs from accessing the shared memory at the same time. The producer creates a semaphore when it starts, and the consumer links to that semaphore when it starts. These semaphores are used before and after the critical sections of the producers and consumers, or the part where they access the shared memory array.
+Semaphores: Semaphores are used in this program to prevent the producer and consumer programs from 
+accessing the shared memory at the same time. The producer creates a semaphore when it starts, and the 
+consumer links to that semaphore when it starts. These semaphores are used before and after the 
+critical sections of the producers and consumers, or the part where they access the shared memory array.
 
-Mutual Exclusion: Because of the semaphores implemented, the two processes will never access the Shared Memory Array unless they are in their critical section. And because the two programs cannot be in their critical section at the same time, they will never access the Shared Memory Array at the same time.
+Mutual Exclusion: Because of the semaphores implemented, the two processes will never access the Shared 
+Memory Array unless they are in their critical section. And because the two programs cannot be in their 
+critical section at the same time, they will never access the Shared Memory Array at the same time.
 
-Shared Memory: Shared Memory is used in this program as a way to share numbers between the two programs to be produced and consumed. The producer process makes a shared memory array of size 2 at the start of it, and the consumer process links to the array at the start as well. The producer puts numbers into the shared array and the consumer takes numbers from the shared array.
+Shared Memory: Shared Memory is used in this program as a way to share numbers between the two programs 
+to be produced and consumed. The producer process makes a shared memory array of size 2 at the start of 
+it, and the consumer process links to the array at the start as well. The producer puts numbers into the 
+shared array and the consumer takes numbers from the shared array.
